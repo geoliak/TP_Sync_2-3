@@ -61,7 +61,6 @@ int main(int argc, char *argv[]) {
     donnees_thread_t donnees_thread;
     int i, nb_lecteurs, nb_redacteurs;
     void *resultat;
-
     if (argc < 4) {
         fprintf(stderr, "Utilisation: %s nb_lecteurs nb_redacteurs "
                         "nb_iterations\n", argv[0]);
