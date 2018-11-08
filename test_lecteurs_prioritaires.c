@@ -1,4 +1,4 @@
-#include "lecteur_redacteur.h"
+#include "lecteur_prioritaire.h"
 
 typedef struct {
     lecteur_redacteur_t lecteur_redacteur;

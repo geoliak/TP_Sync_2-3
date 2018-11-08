@@ -21,9 +21,12 @@ void fin_lecture(lecteur_redacteur_t *lec_red){
 
 	lec_red->nb_lecteurs--;
 	lec_red->lectures_en_cours--;
-	pthread_cond_broadcast(&lec_red->cond_reda);
-	pthread_cond_broadcast(&lec_red->cond_lect);
-	
+	if(lec_red->nb_redacteurs != 0){
+		pthread_cond_broadcast(&lec_red->cond_reda);
+	}
+	else{
+		pthread_cond_broadcast(&lec_red->cond_lect);
+	}
 	pthread_mutex_unlock(&lec_red->verrou_global);
 }
 
@@ -40,8 +43,12 @@ void debut_redaction(lecteur_redacteur_t *lec_red){
 void fin_redaction(lecteur_redacteur_t *lec_red) {
 //	pthread_mutex_lock(&lec_red->verrou_global);
 	lec_red->nb_redacteurs--;
-	pthread_cond_broadcast(&lec_red->cond_reda);
-	pthread_cond_broadcast(&lec_red->cond_lect);
+	if(lec_red->nb_redacteurs != 0){
+		pthread_cond_broadcast(&lec_red->cond_reda);
+	}
+	else{
+		pthread_cond_broadcast(&lec_red->cond_lect);
+	}
 	pthread_mutex_unlock(&lec_red->verrou_global);
 
 }

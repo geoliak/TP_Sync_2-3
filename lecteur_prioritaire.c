@@ -1,4 +1,4 @@
-#include "lecteur_redacteur.h"
+#include "lecteur_prioritaire.h"
 
 
 int lecteur_en_attente = 0 ;
