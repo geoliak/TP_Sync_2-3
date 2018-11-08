@@ -6,13 +6,12 @@
 
 
 typedef struct lecteur_redacteur_t {
-	//pthread_cond_t condition;
 	pthread_mutex_t verrou_global;
 	pthread_cond_t cond_lect;
 	pthread_cond_t cond_reda;
 	int nb_lecteurs;
 	int nb_redacteurs;
-	int lecteur_en_attente;
+	int lectures_en_cours;
 }lecteur_redacteur_t;
 
 void debut_lecture(lecteur_redacteur_t *lec_red);

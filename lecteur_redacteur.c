@@ -1,4 +1,6 @@
 #include "lecteur_redacteur.h"
+
+
 int lecteur_en_attente = 0 ;
 
 

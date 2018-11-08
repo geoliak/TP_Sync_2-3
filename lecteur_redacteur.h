@@ -5,7 +5,6 @@
 #include <semaphore.h>
 
 typedef struct lecteur_redacteur_t {
-	//pthread_cond_t condition;
 	pthread_mutex_t verrou_global;
 	int nb_lecteurs;
 	sem_t sem;
